@@ -4,11 +4,7 @@ namespace LibraryManagementSystem
     {
         public Form1()
         {
-            //Initialize Components
-            txtUsername = new TextBox { PlaceholderText = "Username" };
-            txtPassword = new TextBox { PlaceholderText = "Password", UseSystemPasswordChar = true };
-            btnLogin = new Button { Text = "Login" };
-            lblStatus = new Label { AutoSize = true };
+            InitializeComponent();
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)

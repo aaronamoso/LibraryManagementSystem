@@ -19,7 +19,7 @@ namespace LibraryManagementSystem
         private Label label1;
         private TextBox txtOutput;
 
-        public AdminDashboard()
+        public Admindashboard()
         {
             InitializeComponent();
             LoadTestData();

@@ -12,11 +12,7 @@ namespace LibraryManagementSystem
 {
     public partial class Admindashboard : Form
     {
-        public Admindashboard()
-        {
-            InitializeComponent();
-        }
-
+ 
         private void InitializeComponent()
         {
             btnAddItem = new Button();

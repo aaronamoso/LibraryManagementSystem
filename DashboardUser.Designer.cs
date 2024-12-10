@@ -45,8 +45,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(234, 206, 167);
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
+            ForeColor = Color.FromArgb(139, 50, 44);
             Name = "DashboardUser";
             Text = "DashboardUser";
             ResumeLayout(false);

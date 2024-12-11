@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            lbLibraryBooks = new ListBox();
+            lbLibraryCatalogue = new ListBox();
             label2 = new Label();
             SuspendLayout();
             // 
@@ -43,16 +43,16 @@
             label1.TabIndex = 0;
             label1.Text = "User Dashboard";
             // 
-            // lbLibraryBooks
+            // lbLibraryCatalogue
             // 
-            lbLibraryBooks.FormattingEnabled = true;
-            lbLibraryBooks.HorizontalScrollbar = true;
-            lbLibraryBooks.ItemHeight = 25;
-            lbLibraryBooks.Items.AddRange(new object[] { "Destined for Murder", "Bringers of the Dawn", "You Cannot Die", "Many Mansions" });
-            lbLibraryBooks.Location = new Point(36, 167);
-            lbLibraryBooks.Name = "lbLibraryBooks";
-            lbLibraryBooks.Size = new Size(314, 129);
-            lbLibraryBooks.TabIndex = 1;
+            lbLibraryCatalogue.FormattingEnabled = true;
+            lbLibraryCatalogue.HorizontalScrollbar = true;
+            lbLibraryCatalogue.ItemHeight = 25;
+            lbLibraryCatalogue.Items.AddRange(new object[] { "Destined for Murder", "Bringers of the Dawn", "You Cannot Die", "Many Mansions" });
+            lbLibraryCatalogue.Location = new Point(36, 167);
+            lbLibraryCatalogue.Name = "lbLibraryCatalogue";
+            lbLibraryCatalogue.Size = new Size(314, 129);
+            lbLibraryCatalogue.TabIndex = 1;
             // 
             // label2
             // 
@@ -71,7 +71,7 @@
             BackColor = Color.FromArgb(234, 206, 167);
             ClientSize = new Size(800, 450);
             Controls.Add(label2);
-            Controls.Add(lbLibraryBooks);
+            Controls.Add(lbLibraryCatalogue);
             Controls.Add(label1);
             ForeColor = Color.FromArgb(139, 50, 44);
             Name = "DashboardUser";
@@ -83,7 +83,7 @@
         #endregion
 
         private Label label1;
-        private ListBox lbLibraryBooks;
+        private ListBox lbLibraryCatalogue;
         private Label label2;
     }
 }

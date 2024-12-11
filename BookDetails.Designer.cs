@@ -38,6 +38,8 @@
             lblGenre = new Label();
             label3 = new Label();
             lblDescription = new Label();
+            labelISBN = new Label();
+            lblISBN = new Label();
             ((System.ComponentModel.ISupportInitialize)pbBookCover).BeginInit();
             SuspendLayout();
             // 
@@ -47,9 +49,9 @@
             lblBookName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblBookName.Location = new Point(65, 41);
             lblBookName.Name = "lblBookName";
-            lblBookName.Size = new Size(115, 48);
+            lblBookName.Size = new Size(172, 48);
             lblBookName.TabIndex = 0;
-            lblBookName.Text = "label1";
+            lblBookName.Text = "Book title";
             // 
             // pbBookCover
             // 
@@ -57,6 +59,7 @@
             pbBookCover.Location = new Point(65, 119);
             pbBookCover.Name = "pbBookCover";
             pbBookCover.Size = new Size(234, 269);
+            pbBookCover.SizeMode = PictureBoxSizeMode.StretchImage;
             pbBookCover.TabIndex = 1;
             pbBookCover.TabStop = false;
             // 
@@ -76,15 +79,15 @@
             lblAuthor.Font = new Font("Segoe UI", 12F);
             lblAuthor.Location = new Point(512, 119);
             lblAuthor.Name = "lblAuthor";
-            lblAuthor.Size = new Size(78, 32);
+            lblAuthor.Size = new Size(154, 32);
             lblAuthor.TabIndex = 3;
-            lblAuthor.Text = "label2";
+            lblAuthor.Text = "Author name";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(342, 174);
+            label2.Location = new Point(342, 191);
             label2.Name = "label2";
             label2.Size = new Size(123, 32);
             label2.TabIndex = 4;
@@ -94,17 +97,17 @@
             // 
             lblPublished.AutoSize = true;
             lblPublished.Font = new Font("Segoe UI", 12F);
-            lblPublished.Location = new Point(512, 174);
+            lblPublished.Location = new Point(512, 191);
             lblPublished.Name = "lblPublished";
-            lblPublished.Size = new Size(78, 32);
+            lblPublished.Size = new Size(176, 32);
             lblPublished.TabIndex = 5;
-            lblPublished.Text = "label3";
+            lblPublished.Text = "Date published";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(342, 225);
+            label4.Location = new Point(342, 261);
             label4.Name = "label4";
             label4.Size = new Size(83, 32);
             label4.TabIndex = 6;
@@ -114,17 +117,17 @@
             // 
             lblGenre.AutoSize = true;
             lblGenre.Font = new Font("Segoe UI", 12F);
-            lblGenre.Location = new Point(512, 225);
+            lblGenre.Location = new Point(512, 261);
             lblGenre.Name = "lblGenre";
             lblGenre.Size = new Size(78, 32);
             lblGenre.TabIndex = 7;
-            lblGenre.Text = "label4";
+            lblGenre.Text = "Genre";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(342, 281);
+            label3.Location = new Point(65, 431);
             label3.Name = "label3";
             label3.Size = new Size(140, 32);
             label3.TabIndex = 8;
@@ -133,19 +136,41 @@
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Font = new Font("Segoe UI", 12F);
-            lblDescription.Location = new Point(347, 325);
+            lblDescription.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDescription.Location = new Point(74, 490);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(78, 32);
+            lblDescription.Size = new Size(261, 28);
             lblDescription.TabIndex = 9;
-            lblDescription.Text = "label5";
+            lblDescription.Text = "Brief description of the book";
+            // 
+            // labelISBN
+            // 
+            labelISBN.AutoSize = true;
+            labelISBN.Font = new Font("Segoe UI", 12F);
+            labelISBN.Location = new Point(342, 337);
+            labelISBN.Name = "labelISBN";
+            labelISBN.Size = new Size(70, 32);
+            labelISBN.TabIndex = 10;
+            labelISBN.Text = "ISBN:";
+            // 
+            // lblISBN
+            // 
+            lblISBN.AutoSize = true;
+            lblISBN.Font = new Font("Segoe UI", 12F);
+            lblISBN.Location = new Point(512, 337);
+            lblISBN.Name = "lblISBN";
+            lblISBN.Size = new Size(86, 32);
+            lblISBN.TabIndex = 11;
+            lblISBN.Text = "ISBN #";
             // 
             // BookDetails
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(234, 206, 167);
-            ClientSize = new Size(796, 450);
+            ClientSize = new Size(796, 643);
+            Controls.Add(lblISBN);
+            Controls.Add(labelISBN);
             Controls.Add(lblDescription);
             Controls.Add(label3);
             Controls.Add(lblGenre);
@@ -176,5 +201,7 @@
         private Label lblGenre;
         private Label label3;
         private Label lblDescription;
+        private Label labelISBN;
+        private Label lblISBN;
     }
 }

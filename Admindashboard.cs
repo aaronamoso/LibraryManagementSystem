@@ -12,7 +12,7 @@ namespace LibraryManagementSystem
 {
     public partial class Admindashboard : Form
     {
- 
+
         private void InitializeComponent()
         {
             btnAddItem = new Button();
@@ -46,7 +46,7 @@ namespace LibraryManagementSystem
             // 
             // btnViewOverdue
             // 
-            btnViewOverdue.Location = new Point(30, 170);
+            btnViewOverdue.Location = new Point(30, 231);
             btnViewOverdue.Name = "btnViewOverdue";
             btnViewOverdue.Size = new Size(150, 50);
             btnViewOverdue.TabIndex = 2;

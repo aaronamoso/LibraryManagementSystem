@@ -21,7 +21,7 @@ namespace LibraryManagementSystem
             lblPublished.Text = book.PublicationDate;
             lblGenre.Text = book.Genre;
             lblDescription.Text = book.Description;
-            
+
         }
     }
 }

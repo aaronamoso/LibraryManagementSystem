@@ -44,5 +44,11 @@ namespace LibraryManagementSystem
         public string Genre { get; set; }
         public string Description { get; set; }
         public Image ImageName { get; set; }
+        public DateTime? DueDate { get; set; }
+        public bool IsBorrowed { get; set; }
+        public override string ToString()
+        {
+            return $"{Title} - Due: {(DueDate.HasValue ? DueDate.Value.ToShortDateString() : "Not borrowed")}";
+        }
     }
 }

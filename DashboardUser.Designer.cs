@@ -31,15 +31,21 @@
             label1 = new Label();
             lbLibraryCatalogue = new ListBox();
             label2 = new Label();
+            textBox1 = new TextBox();
+            label3 = new Label();
+            lbBorrowedItems = new ListBox();
+            label4 = new Label();
+            btnBorrow = new Button();
+            btnReturn = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(253, 26);
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(272, 35);
             label1.Name = "label1";
-            label1.Size = new Size(274, 48);
+            label1.Size = new Size(288, 48);
             label1.TabIndex = 0;
             label1.Text = "User Dashboard";
             // 
@@ -48,28 +54,93 @@
             lbLibraryCatalogue.FormattingEnabled = true;
             lbLibraryCatalogue.HorizontalScrollbar = true;
             lbLibraryCatalogue.ItemHeight = 25;
-            lbLibraryCatalogue.Items.AddRange(new object[] { "Destined for Murder", "Bringers of the Dawn", "You Cannot Die", "Many Mansions" });
-            lbLibraryCatalogue.Location = new Point(36, 167);
+            lbLibraryCatalogue.Location = new Point(36, 258);
             lbLibraryCatalogue.Name = "lbLibraryCatalogue";
-            lbLibraryCatalogue.Size = new Size(314, 129);
+            lbLibraryCatalogue.Size = new Size(314, 229);
             lbLibraryCatalogue.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(36, 115);
+            label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(36, 217);
             label2.Name = "label2";
-            label2.Size = new Size(201, 32);
+            label2.Size = new Size(253, 38);
             label2.TabIndex = 2;
             label2.Text = "Library catalogue:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(272, 157);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(305, 31);
+            textBox1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Location = new Point(272, 122);
+            label3.Name = "label3";
+            label3.Size = new Size(212, 32);
+            label3.TabIndex = 4;
+            label3.Text = "Search catalogue:";
+            // 
+            // lbBorrowedItems
+            // 
+            lbBorrowedItems.FormattingEnabled = true;
+            lbBorrowedItems.ItemHeight = 25;
+            lbBorrowedItems.Location = new Point(467, 258);
+            lbBorrowedItems.Name = "lbBorrowedItems";
+            lbBorrowedItems.Size = new Size(329, 229);
+            lbBorrowedItems.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(467, 217);
+            label4.Name = "label4";
+            label4.Size = new Size(306, 38);
+            label4.TabIndex = 6;
+            label4.Text = "Your borrowed books:";
+            // 
+            // btnBorrow
+            // 
+            btnBorrow.BackColor = Color.FromArgb(139, 50, 44);
+            btnBorrow.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBorrow.ForeColor = Color.FromArgb(234, 206, 167);
+            btnBorrow.Location = new Point(36, 513);
+            btnBorrow.Name = "btnBorrow";
+            btnBorrow.Size = new Size(314, 53);
+            btnBorrow.TabIndex = 7;
+            btnBorrow.Text = "Borrow selected book";
+            btnBorrow.UseVisualStyleBackColor = false;
+            // 
+            // btnReturn
+            // 
+            btnReturn.BackColor = Color.FromArgb(139, 50, 44);
+            btnReturn.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReturn.ForeColor = Color.FromArgb(234, 206, 167);
+            btnReturn.Location = new Point(467, 513);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(329, 51);
+            btnReturn.TabIndex = 8;
+            btnReturn.Text = "Return selected book";
+            btnReturn.UseVisualStyleBackColor = false;
             // 
             // DashboardUser
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(234, 206, 167);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(851, 578);
+            Controls.Add(btnReturn);
+            Controls.Add(btnBorrow);
+            Controls.Add(label4);
+            Controls.Add(lbBorrowedItems);
+            Controls.Add(label3);
+            Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(lbLibraryCatalogue);
             Controls.Add(label1);
@@ -85,5 +156,11 @@
         private Label label1;
         private ListBox lbLibraryCatalogue;
         private Label label2;
+        private TextBox textBox1;
+        private Label label3;
+        private ListBox lbBorrowedItems;
+        private Label label4;
+        private Button btnBorrow;
+        private Button btnReturn;
     }
 }

@@ -31,19 +31,20 @@
             label1 = new Label();
             lbLibraryCatalogue = new ListBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtSearchCatalogue = new TextBox();
             label3 = new Label();
             lbBorrowedItems = new ListBox();
             label4 = new Label();
             btnBorrow = new Button();
             btnReturn = new Button();
+            btnClear = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(272, 35);
+            label1.Location = new Point(279, 24);
             label1.Name = "label1";
             label1.Size = new Size(288, 48);
             label1.TabIndex = 0;
@@ -54,7 +55,7 @@
             lbLibraryCatalogue.FormattingEnabled = true;
             lbLibraryCatalogue.HorizontalScrollbar = true;
             lbLibraryCatalogue.ItemHeight = 25;
-            lbLibraryCatalogue.Location = new Point(36, 258);
+            lbLibraryCatalogue.Location = new Point(36, 278);
             lbLibraryCatalogue.Name = "lbLibraryCatalogue";
             lbLibraryCatalogue.Size = new Size(314, 229);
             lbLibraryCatalogue.TabIndex = 1;
@@ -63,34 +64,34 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(36, 217);
+            label2.Location = new Point(36, 237);
             label2.Name = "label2";
             label2.Size = new Size(253, 38);
             label2.TabIndex = 2;
             label2.Text = "Library catalogue:";
             // 
-            // textBox1
+            // txtSearchCatalogue
             // 
-            textBox1.Location = new Point(272, 157);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(305, 31);
-            textBox1.TabIndex = 3;
+            txtSearchCatalogue.Location = new Point(199, 133);
+            txtSearchCatalogue.Name = "txtSearchCatalogue";
+            txtSearchCatalogue.Size = new Size(463, 31);
+            txtSearchCatalogue.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(272, 122);
+            label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
+            label3.Location = new Point(199, 102);
             label3.Name = "label3";
-            label3.Size = new Size(212, 32);
+            label3.Size = new Size(463, 28);
             label3.TabIndex = 4;
-            label3.Text = "Search catalogue:";
+            label3.Text = "Search catalogue by book title, author or genre:";
             // 
             // lbBorrowedItems
             // 
             lbBorrowedItems.FormattingEnabled = true;
             lbBorrowedItems.ItemHeight = 25;
-            lbBorrowedItems.Location = new Point(467, 258);
+            lbBorrowedItems.Location = new Point(467, 278);
             lbBorrowedItems.Name = "lbBorrowedItems";
             lbBorrowedItems.Size = new Size(329, 229);
             lbBorrowedItems.TabIndex = 5;
@@ -99,7 +100,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(467, 217);
+            label4.Location = new Point(467, 237);
             label4.Name = "label4";
             label4.Size = new Size(306, 38);
             label4.TabIndex = 6;
@@ -110,7 +111,7 @@
             btnBorrow.BackColor = Color.FromArgb(139, 50, 44);
             btnBorrow.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBorrow.ForeColor = Color.FromArgb(234, 206, 167);
-            btnBorrow.Location = new Point(36, 513);
+            btnBorrow.Location = new Point(36, 535);
             btnBorrow.Name = "btnBorrow";
             btnBorrow.Size = new Size(314, 53);
             btnBorrow.TabIndex = 7;
@@ -122,31 +123,44 @@
             btnReturn.BackColor = Color.FromArgb(139, 50, 44);
             btnReturn.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReturn.ForeColor = Color.FromArgb(234, 206, 167);
-            btnReturn.Location = new Point(467, 513);
+            btnReturn.Location = new Point(467, 535);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(329, 51);
             btnReturn.TabIndex = 8;
             btnReturn.Text = "Return selected book";
             btnReturn.UseVisualStyleBackColor = false;
             // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.FromArgb(139, 50, 44);
+            btnClear.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold);
+            btnClear.ForeColor = Color.FromArgb(234, 206, 167);
+            btnClear.Location = new Point(356, 170);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(110, 41);
+            btnClear.TabIndex = 9;
+            btnClear.Text = "Reset";
+            btnClear.UseVisualStyleBackColor = false;
+            // 
             // DashboardUser
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(234, 206, 167);
-            ClientSize = new Size(851, 578);
+            ClientSize = new Size(851, 618);
+            Controls.Add(btnClear);
             Controls.Add(btnReturn);
             Controls.Add(btnBorrow);
             Controls.Add(label4);
             Controls.Add(lbBorrowedItems);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearchCatalogue);
             Controls.Add(label2);
             Controls.Add(lbLibraryCatalogue);
             Controls.Add(label1);
             ForeColor = Color.FromArgb(139, 50, 44);
             Name = "DashboardUser";
-            Text = "DashboardUser";
+            Text = "National Library";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,11 +170,12 @@
         private Label label1;
         private ListBox lbLibraryCatalogue;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtSearchCatalogue;
         private Label label3;
         private ListBox lbBorrowedItems;
         private Label label4;
         private Button btnBorrow;
         private Button btnReturn;
+        private Button btnClear;
     }
 }

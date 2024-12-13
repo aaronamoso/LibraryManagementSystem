@@ -11,7 +11,7 @@ namespace LibraryManagementSystem
         private List<Book> borrowedBooks;
         private BindingSource catalogueBinding;
         private BindingSource borrowedBooksBinding;
-        private TextBox txtSearch;
+        //private TextBox txtSearch;
 
         public DashboardUser()
         {
@@ -33,13 +33,18 @@ namespace LibraryManagementSystem
 
             btnBorrow.Click += btnBorrow_Click;
             btnReturn.Click += btnReturn_Click;
+            btnClear.Click += btnClear_Click;
+
+
+            //Search textbox
+            txtSearchCatalogue.TextChanged += TxtSearchCatalogue_TextChanged;
 
             // Add search textbox
-            txtSearch = new TextBox();
-            txtSearch.Location = new Point(lbLibraryCatalogue.Left, lbLibraryCatalogue.Top - 30);
-            txtSearch.Width = lbLibraryCatalogue.Width;
-            txtSearch.TextChanged += TxtSearch_TextChanged;
-            this.Controls.Add(txtSearch);
+            //txtSearch = new TextBox();
+            //txtSearch.Location = new Point(lbLibraryCatalogue.Left, lbLibraryCatalogue.Top - 30);
+            //txtSearch.Width = lbLibraryCatalogue.Width;
+            //txtSearch.TextChanged += TxtSearch_TextChanged;
+            //this.Controls.Add(txtSearch);
 
             // Add borrow button
             //Button btnBorrow = new Button();
@@ -49,27 +54,30 @@ namespace LibraryManagementSystem
             //this.Controls.Add(btnBorrow);
         }
 
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        private void TxtSearchCatalogue_TextChanged(object sender, EventArgs e)
         {
-            string searchText = txtSearch.Text.ToLower();
-            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            string searchText = txtSearchCatalogue.Text.ToLower();
             {
-                catalogueBinding.DataSource = books;
+                if (string.IsNullOrWhiteSpace(searchText))
+                {
+                    catalogueBinding.DataSource = books;
+                }
+                else
+                {
+                    List<Book> filteredBooks = books.Where(b =>
+                        b.Title.ToLower().Contains(searchText) ||
+                        b.Author.ToLower().Contains(searchText) ||
+                        b.Genre.ToLower().Contains(searchText)).ToList();
+                    catalogueBinding.DataSource = filteredBooks;
+                }
+                catalogueBinding.ResetBindings(false);
             }
-            else
-            {
-                var filteredBooks = books.Where(b =>
-                    b.Title.ToLower().Contains(searchText) ||
-                    b.Author.ToLower().Contains(searchText)).ToList();
-                catalogueBinding.DataSource = filteredBooks;
-            }
-            catalogueBinding.ResetBindings(false);
         }
 
         public void btnBorrow_Click(object sender, EventArgs e)
         {
             //if (lbLibraryCatalogue.SelectedItem is Book selectedBook && !selectedBook.IsBorrowed)
-                Book selectedBook = lbLibraryCatalogue.SelectedItem as Book;
+            Book selectedBook = lbLibraryCatalogue.SelectedItem as Book;
             if (selectedBook != null && !selectedBook.IsBorrowed)
             {
                 selectedBook.IsBorrowed = true;
@@ -98,6 +106,10 @@ namespace LibraryManagementSystem
                 MessageBox.Show("Please select a book to return.");
             }
         }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearchCatalogue.Clear();
+        }
 
 
         private void lbLibraryCatalogue_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -108,5 +120,6 @@ namespace LibraryManagementSystem
                 bookDetails.Show();
             }
         }
+
     }
 }

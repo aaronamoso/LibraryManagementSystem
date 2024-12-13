@@ -38,13 +38,14 @@
             btnBorrow = new Button();
             btnReturn = new Button();
             btnClear = new Button();
+            btnLogout = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(279, 24);
+            label1.Location = new Point(295, 32);
             label1.Name = "label1";
             label1.Size = new Size(288, 48);
             label1.TabIndex = 0;
@@ -57,7 +58,7 @@
             lbLibraryCatalogue.ItemHeight = 25;
             lbLibraryCatalogue.Location = new Point(36, 278);
             lbLibraryCatalogue.Name = "lbLibraryCatalogue";
-            lbLibraryCatalogue.Size = new Size(314, 229);
+            lbLibraryCatalogue.Size = new Size(366, 229);
             lbLibraryCatalogue.TabIndex = 1;
             // 
             // label2
@@ -93,7 +94,7 @@
             lbBorrowedItems.ItemHeight = 25;
             lbBorrowedItems.Location = new Point(467, 278);
             lbBorrowedItems.Name = "lbBorrowedItems";
-            lbBorrowedItems.Size = new Size(329, 229);
+            lbBorrowedItems.Size = new Size(389, 229);
             lbBorrowedItems.TabIndex = 5;
             // 
             // label4
@@ -111,7 +112,7 @@
             btnBorrow.BackColor = Color.FromArgb(139, 50, 44);
             btnBorrow.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBorrow.ForeColor = Color.FromArgb(234, 206, 167);
-            btnBorrow.Location = new Point(36, 535);
+            btnBorrow.Location = new Point(54, 535);
             btnBorrow.Name = "btnBorrow";
             btnBorrow.Size = new Size(314, 53);
             btnBorrow.TabIndex = 7;
@@ -123,7 +124,7 @@
             btnReturn.BackColor = Color.FromArgb(139, 50, 44);
             btnReturn.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReturn.ForeColor = Color.FromArgb(234, 206, 167);
-            btnReturn.Location = new Point(467, 535);
+            btnReturn.Location = new Point(483, 535);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(329, 51);
             btnReturn.TabIndex = 8;
@@ -135,19 +136,32 @@
             btnClear.BackColor = Color.FromArgb(139, 50, 44);
             btnClear.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold);
             btnClear.ForeColor = Color.FromArgb(234, 206, 167);
-            btnClear.Location = new Point(356, 170);
+            btnClear.Location = new Point(372, 181);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(110, 41);
             btnClear.TabIndex = 9;
             btnClear.Text = "Reset";
             btnClear.UseVisualStyleBackColor = false;
             // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.FromArgb(139, 50, 44);
+            btnLogout.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold);
+            btnLogout.ForeColor = Color.FromArgb(234, 206, 167);
+            btnLogout.Location = new Point(363, 612);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(133, 41);
+            btnLogout.TabIndex = 10;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            // 
             // DashboardUser
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(234, 206, 167);
-            ClientSize = new Size(851, 618);
+            ClientSize = new Size(910, 665);
+            Controls.Add(btnLogout);
             Controls.Add(btnClear);
             Controls.Add(btnReturn);
             Controls.Add(btnBorrow);
@@ -177,5 +191,6 @@
         private Button btnBorrow;
         private Button btnReturn;
         private Button btnClear;
+        private Button btnLogout;
     }
 }

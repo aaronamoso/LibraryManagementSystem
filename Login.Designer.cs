@@ -98,7 +98,7 @@
             lblStatus.FlatStyle = FlatStyle.Flat;
             lblStatus.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold);
             lblStatus.ForeColor = Color.FromArgb(234, 206, 167);
-            lblStatus.Location = new Point(411, 320);
+            lblStatus.Location = new Point(393, 311);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(146, 54);
             lblStatus.TabIndex = 5;

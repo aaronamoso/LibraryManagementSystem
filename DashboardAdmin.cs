@@ -45,6 +45,8 @@ namespace LibraryManagementSystem
                 bookDetails.Show();
             }
         }
+            btnLogout.Click += btnLogout_Click;
+        
 
         private void btnLogout_Click(object sender, EventArgs e)
         {

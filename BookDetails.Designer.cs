@@ -59,7 +59,7 @@
             // 
             pbBookCover.BorderStyle = BorderStyle.Fixed3D;
             pbBookCover.Location = new Point(46, 71);
-            pbBookCover.Margin = new Padding(2, 2, 2, 2);
+            pbBookCover.Margin = new Padding(2);
             pbBookCover.Name = "pbBookCover";
             pbBookCover.Size = new Size(165, 163);
             pbBookCover.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -183,7 +183,7 @@
             buttonEdit.Name = "buttonEdit";
             buttonEdit.Size = new Size(75, 35);
             buttonEdit.TabIndex = 12;
-            buttonEdit.Text = "EDIT";
+            buttonEdit.Text = "EDIT ITEM";
             buttonEdit.UseVisualStyleBackColor = false;
             buttonEdit.Click += buttonEdit_Click;
             // 
@@ -207,7 +207,7 @@
             Controls.Add(pbBookCover);
             Controls.Add(lblBookName);
             ForeColor = Color.FromArgb(139, 50, 44);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "BookDetails";
             Text = "BookDetails";
             ((System.ComponentModel.ISupportInitialize)pbBookCover).EndInit();

@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            listBox1 = new ListBox();
+            lbLibraryCatalogue = new ListBox();
             btnAddOrEditPatrons = new Button();
             btnAddOrEditInventory = new Button();
             btnOverdueInventory = new Button();
             btnLogout = new Button();
-            txtBoxSearch = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -50,14 +49,14 @@
             label1.TabIndex = 0;
             label1.Text = "Admin Dashboard";
             // 
-            // listBox1
+            // lbLibraryCatalogue
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(146, 189);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(422, 289);
-            listBox1.TabIndex = 1;
+            lbLibraryCatalogue.FormattingEnabled = true;
+            lbLibraryCatalogue.ItemHeight = 15;
+            lbLibraryCatalogue.Location = new Point(146, 131);
+            lbLibraryCatalogue.Name = "lbLibraryCatalogue";
+            lbLibraryCatalogue.Size = new Size(422, 289);
+            lbLibraryCatalogue.TabIndex = 1;
             // 
             // btnAddOrEditPatrons
             // 
@@ -80,6 +79,7 @@
             btnAddOrEditInventory.TabIndex = 3;
             btnAddOrEditInventory.Text = "Add/Edit Inventory";
             btnAddOrEditInventory.UseVisualStyleBackColor = false;
+            btnAddOrEditInventory.Click += btnAddOrEditInventory_Click;
             // 
             // btnOverdueInventory
             // 
@@ -103,26 +103,17 @@
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
             // 
-            // txtBoxSearch
-            // 
-            txtBoxSearch.Location = new Point(146, 146);
-            txtBoxSearch.Name = "txtBoxSearch";
-            txtBoxSearch.Size = new Size(422, 23);
-            txtBoxSearch.TabIndex = 6;
-            txtBoxSearch.Text = "Search Item...";
-            // 
             // DashboardAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(234, 206, 167);
-            ClientSize = new Size(753, 511);
-            Controls.Add(txtBoxSearch);
+            ClientSize = new Size(753, 465);
             Controls.Add(btnLogout);
             Controls.Add(btnOverdueInventory);
             Controls.Add(btnAddOrEditInventory);
             Controls.Add(btnAddOrEditPatrons);
-            Controls.Add(listBox1);
+            Controls.Add(lbLibraryCatalogue);
             Controls.Add(label1);
             Margin = new Padding(2);
             Name = "DashboardAdmin";
@@ -134,11 +125,10 @@
         #endregion
 
         private Label label1;
-        private ListBox listBox1;
+        private ListBox lbLibraryCatalogue;
         private Button btnAddOrEditPatrons;
         private Button btnAddOrEditInventory;
         private Button btnOverdueInventory;
         private Button btnLogout;
-        private TextBox txtBoxSearch;
     }
 }

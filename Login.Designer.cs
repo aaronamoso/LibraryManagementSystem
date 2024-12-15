@@ -146,6 +146,7 @@
             Controls.Add(btnLogin);
             Name = "Login";
             Text = "National Library";
+            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }

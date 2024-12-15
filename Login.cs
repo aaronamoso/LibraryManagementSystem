@@ -18,6 +18,7 @@ namespace LibraryManagementSystem
             var users = new Dictionary<string, string>
             {
                 { "Thomas", "WinterSnow2024" },
+                { "Miranda", "SummerRain2024" },
                 { "Admin", "BadApple2023" },
             };
 
@@ -37,7 +38,7 @@ namespace LibraryManagementSystem
                 else
                 {
                     //Navigate the user to their user dashboard after welcome message confirms they are successfully logged in
-                    DashboardUser dashboardUser = new DashboardUser();
+                    DashboardUser dashboardUser = new DashboardUser(username);
                     dashboardUser.Show();
                 }
 
@@ -48,6 +49,11 @@ namespace LibraryManagementSystem
             {
                 MessageBox.Show("Invalid username or password. Please try again.");
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

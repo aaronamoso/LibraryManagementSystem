@@ -13,11 +13,38 @@ namespace LibraryManagementSystem
         private BindingSource borrowedBooksBinding;
         //private TextBox txtSearch;
 
-        public DashboardUser()
+        // public DashboardUser()
+        //{
+        //  InitializeComponent();
+        //books = LibraryCatalogue.GetBooks();
+        //borrowedBooks = new List<Book>();
+
+        private string currentUser;
+        private static Dictionary<string, List<BorrowedBookInfo>> allBorrowedBooks;
+
+        public DashboardUser(string username)
         {
             InitializeComponent();
+            currentUser = username;
             books = LibraryCatalogue.GetBooks();
             borrowedBooks = new List<Book>();
+            allBorrowedBooks = BookPersistence.LoadBorrowedBooks();
+
+            if (allBorrowedBooks.ContainsKey(currentUser))
+            {
+                foreach (var borrowedInfo in allBorrowedBooks[currentUser])
+                {
+                    var book = books.Find(b => b.ISBN == borrowedInfo.ISBN);
+                    if (book != null)
+                    {
+                        book.IsBorrowed = true;
+                        book.DueDate = borrowedInfo.DueDate;
+                        borrowedBooks.Add(book);
+                    }
+                }
+            }
+
+
 
             catalogueBinding = new BindingSource();
             catalogueBinding.DataSource = books;
@@ -25,7 +52,8 @@ namespace LibraryManagementSystem
             borrowedBooksBinding.DataSource = borrowedBooks;
 
             lbLibraryCatalogue.DataSource = catalogueBinding;
-            lbLibraryCatalogue.DisplayMember = "Title";
+            //Displays book title and available or borrowed status
+            lbLibraryCatalogue.DisplayMember = "ToString";
             lbLibraryCatalogue.MouseDoubleClick += lbLibraryCatalogue_MouseDoubleClick;
 
             lbBorrowedItems.DataSource = borrowedBooksBinding;
@@ -75,6 +103,10 @@ namespace LibraryManagementSystem
             }
         }
 
+
+
+
+
         public void btnBorrow_Click(object sender, EventArgs e)
         {
             //if (lbLibraryCatalogue.SelectedItem is Book selectedBook && !selectedBook.IsBorrowed)
@@ -84,6 +116,13 @@ namespace LibraryManagementSystem
                 selectedBook.IsBorrowed = true;
                 selectedBook.DueDate = DateTime.Now.AddDays(14); // 2-week loan period
                 borrowedBooks.Add(selectedBook);
+                if (!allBorrowedBooks.ContainsKey(currentUser))
+                {
+                    allBorrowedBooks[currentUser] = new List<BorrowedBookInfo>();
+                }
+                allBorrowedBooks[currentUser].Add(new BorrowedBookInfo { ISBN = selectedBook.ISBN, DueDate = selectedBook.DueDate.Value });
+                BookPersistence.SaveBorrowedBooks(allBorrowedBooks);
+              
                 borrowedBooksBinding.ResetBindings(false);
                 MessageBox.Show($"Book borrowed successfully! Due date: {selectedBook.DueDate.Value.ToShortDateString()}");
             }
@@ -92,6 +131,13 @@ namespace LibraryManagementSystem
                 MessageBox.Show("This book is already borrowed.");
             }
         }
+
+
+
+
+
+
+
         private void btnReturn_Click(object sender, EventArgs e)
         {
             if (lbBorrowedItems.SelectedItem is Book bookToReturn)
@@ -99,6 +145,11 @@ namespace LibraryManagementSystem
                 borrowedBooks.Remove(bookToReturn);
                 bookToReturn.IsBorrowed = false;
                 bookToReturn.DueDate = null;
+                if (allBorrowedBooks.ContainsKey(currentUser))
+                {
+                    allBorrowedBooks[currentUser].RemoveAll(b => b.ISBN == bookToReturn.ISBN);
+                    BookPersistence.SaveBorrowedBooks(allBorrowedBooks);
+                }
                 borrowedBooksBinding.ResetBindings(false);
                 MessageBox.Show("Book returned successfully!");
             }

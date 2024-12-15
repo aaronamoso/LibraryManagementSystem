@@ -79,7 +79,13 @@ namespace LibraryManagementSystem
         public bool IsBorrowed { get; set; }
         public override string ToString()
         {
-            return $"{Title} - Due: {(DueDate.HasValue ? DueDate.Value.ToShortDateString() : "Not borrowed")}";
+            if (IsBorrowed)
+                return $"{Title} - Borrowed (Due: {DueDate?.ToShortDateString()})";
+            return $"{Title} - Available";
         }
+        
+        //{
+          //  return $"{Title} - Due: {(DueDate.HasValue ? DueDate.Value.ToShortDateString() : "Not borrowed")}";
+        //}
     }
 }

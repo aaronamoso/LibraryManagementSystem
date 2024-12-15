@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Reflection.Metadata.BlobBuilder;
+using System.IO;
+using System.Text.Json;
 
 namespace LibraryManagementSystem
 {
     public static class LibraryCatalogue
+
     {
-        public static List<Book> GetBooks()
-        {
-            return new List<Book>
+        private static readonly string filePath = "LibraryCatalogue.json"; // File path for JSON storage
+        private static List<Book> books = new List<Book>
             {
                 new Book { Title = "You Cannot Die", Author = "Ian Currie", ISBN = "978-0743273599", PublicationDate = "1998", Genre = "Controversial", Description = "A collection of research on death and dying", ImageName = Image.FromFile("Resources/YouCannotDie.jpg") },
                 new Book { Title = "Many Mansions", Author = "Gina Cerminera", ISBN = "978-0446315555", PublicationDate = "1956", Genre = "Biography", Description = "The amazing story of the life of the reluctant seer Edgar Cayce", ImageName = Image.FromFile("Resources/ManyMansions.jpg") },
@@ -63,7 +66,51 @@ namespace LibraryManagementSystem
                 new Book { Title = "Behind the Attic Wall", Author = "Sylvia Cassedy", ISBN = "978-08387745632", PublicationDate = "1983", Genre = "Fiction", Description = "In the bleak, forbidding house of her great-aunts, neglected twelve-year-old orphan Maggie finds magic that awakens in her the capacity to love and be loved.", ImageName = Image.FromFile("Resources/Attic.jpg") },
                 new Book { Title = "The Outport People", Author = "Claire Mowat", ISBN = "978-0603824958", PublicationDate = "1987", Genre = "Fiction", Description = "A fictional memoir that beautifully recreates an almost vanished world where life revolved tightly around the home and neighbours", ImageName = Image.FromFile("Resources/Outport.jpg") },
             };
+        static LibraryCatalogue()
+        {
+            LoadBooks(); // Load books from file on application start
         }
+
+        public static List<Book> GetBooks()
+        {
+            return books;
+        }
+
+        public static void AddBook(Book newBook)
+        {
+            books.Add(newBook);
+            SaveBooks(); // Save changes to file
+        }
+
+        private static void SaveBooks()
+        {
+            try
+            {
+                string json = JsonSerializer.Serialize(books, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(filePath, json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving books: {ex.Message}");
+            }
+        }
+
+        private static void LoadBooks()
+        {
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    string json = File.ReadAllText(filePath);
+                    books = JsonSerializer.Deserialize<List<Book>>(json) ?? new List<Book>();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error loading books: {ex.Message}");
+                }
+            }
+        }
+    }
     }
 
     public class Book
@@ -88,4 +135,5 @@ namespace LibraryManagementSystem
           //  return $"{Title} - Due: {(DueDate.HasValue ? DueDate.Value.ToShortDateString() : "Not borrowed")}";
         //}
     }
-}
+
+

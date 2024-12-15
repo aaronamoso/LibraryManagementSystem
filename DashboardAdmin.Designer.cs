@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            listBox1 = new ListBox();
-            btnAddOrEditPatrons = new Button();
+            lbLibraryCatalogue = new ListBox();
             btnAddOrEditInventory = new Button();
-            btnOverdueInventory = new Button();
             btnLogout = new Button();
             txtBoxSearch = new TextBox();
             SuspendLayout();
@@ -50,25 +48,15 @@
             label1.TabIndex = 0;
             label1.Text = "Admin Dashboard";
             // 
-            // listBox1
+            // lbLibraryCatalogue
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(146, 189);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(422, 289);
-            listBox1.TabIndex = 1;
-            // 
-            // btnAddOrEditPatrons
-            // 
-            btnAddOrEditPatrons.BackColor = Color.FromArgb(139, 50, 44);
-            btnAddOrEditPatrons.ForeColor = SystemColors.ControlLightLight;
-            btnAddOrEditPatrons.Location = new Point(159, 78);
-            btnAddOrEditPatrons.Name = "btnAddOrEditPatrons";
-            btnAddOrEditPatrons.Size = new Size(128, 47);
-            btnAddOrEditPatrons.TabIndex = 2;
-            btnAddOrEditPatrons.Text = "Add/Edit Patrons";
-            btnAddOrEditPatrons.UseVisualStyleBackColor = false;
+            lbLibraryCatalogue.FormattingEnabled = true;
+            lbLibraryCatalogue.ItemHeight = 15;
+            lbLibraryCatalogue.Location = new Point(146, 189);
+            lbLibraryCatalogue.Name = "lbLibraryCatalogue";
+            lbLibraryCatalogue.Size = new Size(422, 289);
+            lbLibraryCatalogue.TabIndex = 1;
+            lbLibraryCatalogue.MouseDoubleClick += lbLibraryCatalogue_MouseDoubleClick;
             // 
             // btnAddOrEditInventory
             // 
@@ -80,17 +68,7 @@
             btnAddOrEditInventory.TabIndex = 3;
             btnAddOrEditInventory.Text = "Add/Edit Inventory";
             btnAddOrEditInventory.UseVisualStyleBackColor = false;
-            // 
-            // btnOverdueInventory
-            // 
-            btnOverdueInventory.BackColor = Color.FromArgb(139, 50, 44);
-            btnOverdueInventory.ForeColor = SystemColors.ControlLightLight;
-            btnOverdueInventory.Location = new Point(427, 78);
-            btnOverdueInventory.Name = "btnOverdueInventory";
-            btnOverdueInventory.Size = new Size(128, 47);
-            btnOverdueInventory.TabIndex = 4;
-            btnOverdueInventory.Text = "Overdue Inventory";
-            btnOverdueInventory.UseVisualStyleBackColor = false;
+            btnAddOrEditInventory.Click += btnAddOrEditInventory_Click;
             // 
             // btnLogout
             // 
@@ -110,6 +88,7 @@
             txtBoxSearch.Size = new Size(422, 23);
             txtBoxSearch.TabIndex = 6;
             txtBoxSearch.Text = "Search Item...";
+            txtBoxSearch.TextChanged += txtBoxSearch_TextChanged;
             // 
             // DashboardAdmin
             // 
@@ -119,10 +98,8 @@
             ClientSize = new Size(753, 511);
             Controls.Add(txtBoxSearch);
             Controls.Add(btnLogout);
-            Controls.Add(btnOverdueInventory);
             Controls.Add(btnAddOrEditInventory);
-            Controls.Add(btnAddOrEditPatrons);
-            Controls.Add(listBox1);
+            Controls.Add(lbLibraryCatalogue);
             Controls.Add(label1);
             Margin = new Padding(2);
             Name = "DashboardAdmin";
@@ -134,10 +111,8 @@
         #endregion
 
         private Label label1;
-        private ListBox listBox1;
-        private Button btnAddOrEditPatrons;
+        private ListBox lbLibraryCatalogue;
         private Button btnAddOrEditInventory;
-        private Button btnOverdueInventory;
         private Button btnLogout;
         private TextBox txtBoxSearch;
     }

@@ -45,7 +45,9 @@ namespace LibraryManagementSystem
                 bookDetails.Show();
             }
         }
-            btnLogout.Click += btnLogout_Click;
+
+            //Removed duplicate code from line 28 above that is giving errors on build:
+           // btnLogout.Click += btnLogout_Click;
         
 
         private void btnLogout_Click(object sender, EventArgs e)

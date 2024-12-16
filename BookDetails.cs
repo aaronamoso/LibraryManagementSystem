@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem
 {
+    //Information that pops up when an individual book is selected from the library catalogue
     public partial class BookDetails : Form
     {
         private Book _currentBook; // Define the variable to hold the current book object
@@ -15,7 +16,7 @@ namespace LibraryManagementSystem
 
         private void DisplayBookDetails(Book book)
         {
-            // Assuming you have these controls on your form
+            //Controls that allow book details to be displayed on the form when book is selected from library catalogue
             pbBookCover.Image = book.ImageName;
             lblBookName.Text = book.Title;
             lblAuthor.Text = book.Author;
